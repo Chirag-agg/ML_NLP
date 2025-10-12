@@ -1,0 +1,6 @@
+#numpy
+#pandas
+#scikit-learn
+#flask
+#pytest
+#optional dependencies for advanced features
