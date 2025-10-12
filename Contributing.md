@@ -4,7 +4,7 @@ This document provides guidelines and information for contributors.
 
 ##  Table of Contents
 
-- [Code of Conduct](#code-of-conduct)
+- [submission requirements](#submission-requirements)
 - [Getting Started](#getting-started)
 - [Development Setup](#development-setup)
 - [Contribution Process](#contribution-process)
@@ -25,7 +25,6 @@ This document provides guidelines and information for contributors.
 ### Deadline
 - Submissions must be made before the competition deadline
 - Late submissions will not be accepted
-- Extensions may be granted for technical issues (contact organizers)
 
 ## 📝 Submission Format
 
@@ -34,7 +33,7 @@ This document provides guidelines and information for contributors.
 2. **Description**: Detailed explanation of changes and approach
 3. **Code**: Well-structured, commented code
 4. **Tests**: Unit tests for new functionality
-5. **Documentation**: Updated README or code comments
+5. **Documentation**: Updated README 
 
 ### Required Information
 - Issue number being addressed
@@ -56,7 +55,6 @@ This document provides guidelines and information for contributors.
 - Follow Python PEP 8 style guidelines
 - Use meaningful variable and function names
 - Implement proper error handling
-- Add type hints where appropriate
 
 ### Testing Requirements
 - Write unit tests for new functionality
@@ -208,84 +206,6 @@ git push origin feature/your-feature-name
 
 Then create a pull request on GitHub.
 
-## 📏 Coding Standards
-
-### Python Style Guide
-
-We follow [PEP 8](https://www.python.org/dev/peps/pep-0008/) with some modifications:
-
-- **Line length**: 88 characters (Black formatter standard)
-- **Import order**: isort configuration
-- **Type hints**: Use type hints for function parameters and return values
-- **Docstrings**: Use Google-style docstrings
-
-### Code Formatting
-
-We use automated formatting tools:
-
-- **Black**: Code formatting
-- **isort**: Import sorting
-- **flake8**: Linting
-- **mypy**: Type checking
-
-Run formatting before committing:
-
-```bash
-black src/ tests/
-isort src/ tests/
-```
-
-### Example Code Style
-
-```python
-from typing import Dict, List, Optional
-import logging
-
-logger = logging.getLogger(__name__)
-
-
-class SentimentAnalyzer:
-    """A sentiment analysis class for text processing.
-    
-    This class provides methods for analyzing sentiment in text using
-    various machine learning models.
-    
-    Args:
-        model_type: Type of model to use ('naive_bayes', 'svm', 'neural')
-        confidence_threshold: Minimum confidence for predictions
-    """
-    
-    def __init__(
-        self, 
-        model_type: str = "naive_bayes",
-        confidence_threshold: float = 0.5
-    ) -> None:
-        self.model_type = model_type
-        self.confidence_threshold = confidence_threshold
-        self.model = None
-        
-    def predict(self, text: str) -> Dict[str, float]:
-        """Predict sentiment for given text.
-        
-        Args:
-            text: Input text to analyze
-            
-        Returns:
-            Dictionary containing sentiment and confidence score
-            
-        Raises:
-            ValueError: If text is empty or model not trained
-        """
-        if not text.strip():
-            raise ValueError("Text cannot be empty")
-            
-        if self.model is None:
-            raise ValueError("Model must be trained before prediction")
-            
-        # Implementation here
-        pass
-```
-
 ## 🐛 Issue Guidelines
 
 ### Reporting Bugs
@@ -421,25 +341,25 @@ class TestSentimentAnalyzer:
 
 Your contributions will be evaluated based on:
 
-### Code Quality (40%)
+### Code Quality 
 - Clean, readable code
 - Proper error handling
 - Efficient algorithms
 - Good test coverage
 
-### Functionality (30%)
+### Functionality 
 - Correct implementation
 - Meets requirements
 - Handles edge cases
 - Performance considerations
 
-### Documentation (20%)
+### Documentation 
 - Clear docstrings
 - Updated README
 - Code comments
 - API documentation
 
-### Testing (10%)
+### Testing 
 - Comprehensive tests
 - Edge case coverage
 - Integration tests
