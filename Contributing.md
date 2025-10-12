@@ -5,10 +5,11 @@ This document provides guidelines and information for contributors.
 ##  Table of Contents
 
 - [submission requirements](#submission-requirements)
-- [Getting Started](#getting-started)
-- [Development Setup](#development-setup)
-- [Contribution Process](#contribution-process)
-- [Coding Standards](#coding-standards)
+- [Submission Format](#Submission-Format)
+- [Technical Guidelines](#Technical-guidelines)
+- [Getting Started](#Getting-started)
+- [Developmental setup](#Developmental-setup)
+- [Contribution process](#Contribution-process)
 - [Issue Guidelines](#issue-guidelines)
 - [Pull Request Guidelines](#pull-request-guidelines)
 - [Testing Guidelines](#testing-guidelines)
