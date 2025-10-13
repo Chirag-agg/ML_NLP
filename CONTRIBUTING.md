@@ -325,10 +325,6 @@ class TestSentimentAnalyzer:
 ### User Documentation
 
 - **README updates**: Update README for new features
-- **Tutorial notebooks**: Create notebooks for complex features
-- **Changelog**: Update CHANGELOG.md for significant changes
-
-
 
 ---
 
