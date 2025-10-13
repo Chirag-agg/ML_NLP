@@ -23,10 +23,6 @@ This document provides guidelines and information for contributors.
 - Solutions must address the issue requirements
 - Performance should be reasonable for the task
 
-### Deadline
-- Submissions must be made before the competition deadline
-- Late submissions will not be accepted
-
 ## 📝 Submission Format
 
 ### Pull Request Structure
@@ -150,13 +146,7 @@ pytest -v
   - 🟡 `intermediate`: Requires some experience
   - 🔴 `advanced`: Complex tasks for experienced developers
 
-### 2. Claim an Issue
-
-- Comment on the issue to express your interest
-- Wait for maintainer approval before starting work
-- This prevents duplicate work
-
-### 3. Create a Branch
+### 2. Create a Branch
 
 ```bash
 git checkout -b feature/your-feature-name
@@ -164,14 +154,14 @@ git checkout -b feature/your-feature-name
 git checkout -b fix/issue-number
 ```
 
-### 4. Make Changes
+### 3. Make Changes
 
 - Write clean, readable code
 - Add tests for new functionality
 - Update documentation as needed
 - Follow the coding standards below
 
-### 5. Test Your Changes
+### 4. Test Your Changes
 
 ```bash
 # Run tests
@@ -186,7 +176,7 @@ isort --check-only src/
 mypy src/
 ```
 
-### 6. Commit Changes
+### 5. Commit Changes
 
 Use clear, descriptive commit messages:
 
@@ -199,7 +189,7 @@ git commit -m "Add sentiment analysis for emoji handling
 - Update documentation"
 ```
 
-### 7. Push and Create PR
+### 6. Push and Create PR
 
 ```bash
 git push origin feature/your-feature-name
@@ -338,35 +328,8 @@ class TestSentimentAnalyzer:
 - **Tutorial notebooks**: Create notebooks for complex features
 - **Changelog**: Update CHANGELOG.md for significant changes
 
-## 🏆 Competition Scoring
-
-Your contributions will be evaluated based on:
-
-### Code Quality 
-- Clean, readable code
-- Proper error handling
-- Efficient algorithms
-- Good test coverage
-
-### Functionality 
-- Correct implementation
-- Meets requirements
-- Handles edge cases
-- Performance considerations
-
-### Documentation 
-- Clear docstrings
-- Updated README
-- Code comments
-- API documentation
-
-### Testing 
-- Comprehensive tests
-- Edge case coverage
-- Integration tests
-- Performance tests
 
 
 ---
 
-Thank you for contributing to the Sentiment Analysis Competition! Your contributions help make this project better for everyone. 🚀
+Thank you for contributing to the Sentiment Analysis Competition! Your contributions help make this project 
