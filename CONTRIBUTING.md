@@ -23,7 +23,7 @@ This document provides guidelines and information for contributors.
 - Solutions must address the issue requirements
 - Performance should be reasonable for the task
 
-## 📝 Submission Format
+##  Submission Format
 
 ### Pull Request Structure
 1. **Title**: Clear, descriptive title referencing the issue number
@@ -45,7 +45,7 @@ This document provides guidelines and information for contributors.
 - Group related functionality together
 - Maintain consistent coding style
 
-## 🔧 Technical Guidelines
+##  Technical Guidelines
 
 ### Code Quality
 - Write clean, readable code with proper comments
@@ -71,7 +71,7 @@ This document provides guidelines and information for contributors.
 - Include usage examples where helpful
 - Document any breaking changes
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -94,7 +94,7 @@ This document provides guidelines and information for contributors.
    git remote add upstream https://github.com/originalowner/sentiment-analysis-competition.git
    ```
 
-## 🛠️ Development Setup
+##  Development Setup
 
 ### Environment Setup
 
@@ -136,15 +136,15 @@ pytest tests/test_models.py
 pytest -v
 ```
 
-## 📝 Contribution Process
+##  Contribution Process
 
 ### 1. Choose an Issue
 
 - Browse the [Issues](https://github.com/yourusername/sentiment-analysis-competition/issues) tab
 - Look for issues labeled with your skill level:
-  - 🟢 `good first issue`: Perfect for beginners
-  - 🟡 `intermediate`: Requires some experience
-  - 🔴 `advanced`: Complex tasks for experienced developers
+  -  `good first issue`: Perfect for beginners
+  -  `intermediate`: Requires some experience
+  -  `advance`: Complex tasks for experienced developers
 
 ### 2. Create a Branch
 
@@ -197,7 +197,7 @@ git push origin feature/your-feature-name
 
 Then create a pull request on GitHub.
 
-## 🐛 Issue Guidelines
+##  Issue Guidelines
 
 ### Reporting Bugs
 
@@ -221,7 +221,7 @@ When requesting features, please include:
 4. **Alternatives**: Other solutions you've considered
 5. **Additional context**: Any other relevant information
 
-## 🔄 Pull Request Guidelines
+##  Pull Request Guidelines
 
 ### PR Template
 
@@ -249,7 +249,7 @@ Use the provided PR template and fill out all sections:
 3. **Feedback**: Address any feedback or requested changes
 4. **Approval**: Once approved, the PR will be merged
 
-## 🧪 Testing Guidelines
+##  Testing Guidelines
 
 ### Test Structure
 
@@ -308,7 +308,7 @@ class TestSentimentAnalyzer:
             analyzer.predict("")
 ```
 
-## 📚 Documentation Guidelines
+##  Documentation Guidelines
 
 ### Code Documentation
 
