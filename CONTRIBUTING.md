@@ -1,331 +1,108 @@
-# Contributing to Sentiment Analysis project
+# Sentiment Analysis Competition Track
 
-This document provides guidelines and information for contributors.
+Build a complete sentiment analysis system from this barebones repository.
 
-##  Table of Contents
+## Your Mission
 
-- [submission requirements](#submission-requirements)
-- [Submission Format](#Submission-Format)
-- [Technical Guidelines](#Technical-guidelines)
-- [Getting Started](#Getting-started)
-- [Developmental setup](#Developmental-setup)
-- [Contribution process](#Contribution-process)
-- [Issue Guidelines](#issue-guidelines)
-- [Pull Request Guidelines](#pull-request-guidelines)
-- [Testing Guidelines](#testing-guidelines)
-- [Documentation Guidelines](#documentation-guidelines)
+Transform the skeleton code into a working sentiment analysis API that classifies text as positive, negative, or neutral.
 
-##  Submission Requirements
+## What You Must Build
 
-### Quality Standards
-- Code must be functional and tested
-- Documentation must be clear and complete
-- Solutions must address the issue requirements
-- Performance should be reasonable for the task
+### Core Requirements
+1. **ML Model** (`src/models/sentiment_analyzer.py`) - Implement actual sentiment classification
+2. **Text Preprocessing** (`preprocessing/text_cleaner.py`) - Clean text (URLs, mentions, contractions, etc.)
+3. **API Integration** (`api/app.py`) - Replace placeholder responses with real predictions
+4. **Tests** (`tests/`) - >80% coverage, test accuracy and edge cases
 
-##  Submission Format
+### Performance Requirements
+- **Accuracy**: >70% required, >85% excellent
+- **Speed**: <1s single prediction, <10s for 100 predictions
+- **Coverage**: >80% test coverage
 
-### Pull Request Structure
-1. **Title**: Clear, descriptive title referencing the issue number
-2. **Description**: Detailed explanation of changes and approach
-3. **Code**: Well-structured, commented code
-4. **Tests**: Unit tests for new functionality
-5. **Documentation**: Updated README 
-
-### Required Information
-- Issue number being addressed
-- Approach taken to solve the problem
-- Any assumptions or limitations
-- Testing performed
-- Performance considerations
-
-### File Organization
-- Follow existing project structure
-- Use meaningful file and function names
-- Group related functionality together
-- Maintain consistent coding style
-
-##  Technical Guidelines
-
-### Code Quality
-- Write clean, readable code with proper comments
-- Follow Python PEP 8 style guidelines
-- Use meaningful variable and function names
-- Implement proper error handling
-
-### Testing Requirements
-- Write unit tests for new functionality
-- Ensure all tests pass before submission
-- Test edge cases and error conditions
-- Maintain or improve test coverage
-
-### Performance Considerations
-- Optimize for reasonable performance
-- Consider memory usage for large datasets
-- Document any performance trade-offs
-- Use efficient algorithms and data structures
-
-### Documentation Standards
-- Update README if adding new features
-- Add docstrings to all functions and classes
-- Include usage examples where helpful
-- Document any breaking changes
-
-##  Getting Started
-
-### Prerequisites
-
-- Python 3.8 or higher
-- Git
-- Basic understanding of sentiment analysis concepts
-- Familiarity with Python development
-
-### Fork and Clone
-
-1. Fork the repository on GitHub
-2. Clone your fork locally:
-   ```bash
-   git clone https://github.com/yourusername/sentiment-analysis-competition.git
-   cd sentiment-analysis-competition
-   ```
-
-3. Add the upstream repository:
-   ```bash
-   git remote add upstream https://github.com/originalowner/sentiment-analysis-competition.git
-   ```
-
-##  Development Setup
-
-### Environment Setup
-
-1. **Create a virtual environment**:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   pip install -r requirements-dev.txt  # Development dependencies
-   ```
-
-3. **Install pre-commit hooks** (optional but recommended):
-   ```bash
-   pre-commit install
-   ```
-
-4. **Install the package in development mode**:
-   ```bash
-   pip install -e .
-   ```
-
-### Running Tests
+## Quick Start
 
 ```bash
-# Run all tests
-pytest
+# Setup
+git clone <your-fork>
+cd sentiment-analysis-competition
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
 
-# Run with coverage
-pytest --cov=src
-
-# Run specific test file
-pytest tests/test_models.py
-
-# Run with verbose output
-pytest -v
+# Test skeleton API
+python api/app.py
+# Visit http://localhost:5000
 ```
 
-##  Contribution Process
+## Implementation Strategy
 
-### 1. Choose an Issue
+### Step 1: Choose ML Approach
+- **Traditional**: scikit-learn + TF-IDF (Naive Bayes, SVM, Logistic Regression)
+- **Deep Learning**: Transformers (BERT, RoBERTa) or LSTM
+- **Hybrid**: Ensemble multiple models
 
-- Browse the [Issues](https://github.com/yourusername/sentiment-analysis-competition/issues) tab
-- Look for issues labeled with your skill level:
-  -  `good first issue`: Perfect for beginners
-  -  `intermediate`: Requires some experience
-  -  `advance`: Complex tasks for experienced developers
-
-### 2. Create a Branch
-
-```bash
-git checkout -b feature/your-feature-name
-# or
-git checkout -b fix/issue-number
-```
-
-### 3. Make Changes
-
-- Write clean, readable code
-- Add tests for new functionality
-- Update documentation as needed
-- Follow the coding standards below
-
-### 4. Test Your Changes
-
-```bash
-# Run tests
-pytest
-
-# Check code style
-flake8 src/
-black --check src/
-isort --check-only src/
-
-# Type checking
-mypy src/
-```
-
-### 5. Commit Changes
-
-Use clear, descriptive commit messages:
-
-```bash
-git add .
-git commit -m "Add sentiment analysis for emoji handling
-
-- Implement emoji sentiment mapping
-- Add tests for emoji processing
-- Update documentation"
-```
-
-### 6. Push and Create PR
-
-```bash
-git push origin feature/your-feature-name
-```
-
-Then create a pull request on GitHub.
-
-##  Issue Guidelines
-
-### Reporting Bugs
-
-When reporting bugs, please include:
-
-1. **Clear title**: Brief description of the issue
-2. **Steps to reproduce**: Detailed steps to reproduce the bug
-3. **Expected behavior**: What you expected to happen
-4. **Actual behavior**: What actually happened
-5. **Environment**: Python version, OS, package versions
-6. **Screenshots**: If applicable
-7. **Code samples**: Minimal code to reproduce the issue
-
-### Requesting Features
-
-When requesting features, please include:
-
-1. **Clear title**: Brief description of the feature
-2. **Use case**: Why this feature would be useful
-3. **Proposed solution**: How you think it should work
-4. **Alternatives**: Other solutions you've considered
-5. **Additional context**: Any other relevant information
-
-##  Pull Request Guidelines
-
-### PR Template
-
-Use the provided PR template and fill out all sections:
-
-- **Description**: What changes were made and why
-- **Type of change**: Bug fix, feature, documentation, etc.
-- **Testing**: How the changes were tested
-- **Checklist**: Ensure all items are completed
-
-### PR Requirements
-
-- [ ] Code follows the project's coding standards
-- [ ] Tests pass locally
-- [ ] New tests added for new functionality
-- [ ] Documentation updated if needed
-- [ ] No merge conflicts
-- [ ] PR is linked to an issue
-- [ ] Commit messages are clear and descriptive
-
-### Review Process
-
-1. **Automated checks**: CI/CD pipeline runs tests and checks
-2. **Code review**: Maintainers review the code
-3. **Feedback**: Address any feedback or requested changes
-4. **Approval**: Once approved, the PR will be merged
-
-##  Testing Guidelines
-
-### Test Structure
-
-```
-tests/
-├── unit/                 # Unit tests
-│   ├── test_models.py
-│   ├── test_preprocessing.py
-│   └── test_evaluation.py
-├── integration/          # Integration tests
-│   ├── test_api.py
-│   └── test_pipeline.py
-└── fixtures/             # Test data
-    ├── sample_texts.json
-    └── expected_results.json
-```
-
-### Writing Tests
-
-- **Test coverage**: Aim for >80% code coverage
-- **Test names**: Use descriptive names that explain what is being tested
-- **Test isolation**: Each test should be independent
-- **Mocking**: Use mocks for external dependencies
-- **Fixtures**: Use pytest fixtures for common test data
-
-### Example Test
-
+### Step 2: Core Implementation
 ```python
-import pytest
-from src.models.sentiment_analyzer import SentimentAnalyzer
+# SentimentAnalyzer class needs:
+def train(self, texts, labels): pass
+def predict(self, text): return {"sentiment": "positive", "confidence": 0.85}
+def predict_batch(self, texts): pass
 
-
-class TestSentimentAnalyzer:
-    """Test cases for SentimentAnalyzer class."""
-    
-    @pytest.fixture
-    def analyzer(self):
-        """Create a SentimentAnalyzer instance for testing."""
-        return SentimentAnalyzer()
-    
-    def test_predict_positive_text(self, analyzer):
-        """Test sentiment prediction for positive text."""
-        # Arrange
-        text = "I love this product!"
-        
-        # Act
-        result = analyzer.predict(text)
-        
-        # Assert
-        assert result['sentiment'] == 'positive'
-        assert result['confidence'] > 0.5
-    
-    def test_predict_empty_text_raises_error(self, analyzer):
-        """Test that empty text raises ValueError."""
-        with pytest.raises(ValueError, match="Text cannot be empty"):
-            analyzer.predict("")
+# TextCleaner needs comprehensive cleaning:
+def clean_text(self, text):
+    # Remove URLs, mentions, hashtags
+    # Handle contractions, emojis, special chars
+    # Optional: remove stopwords
 ```
 
-##  Documentation Guidelines
+### Step 3: Connect to API
+Replace all placeholder responses in `api/app.py` endpoints:
+- `/predict` - Single prediction
+- `/predict_batch` - Batch predictions  
+- `/train` - Model training
+- `/model/evaluate` - Performance metrics
 
-### Code Documentation
+## Evaluation Criteria
 
-- **Docstrings**: All public functions and classes need docstrings
-- **Comments**: Add comments for complex logic
-- **Type hints**: Use type hints for better code understanding
+- **Technical** (60%): Model performance, code quality, testing
+- **Innovation** (25%): Advanced features, novel approaches
+- **Documentation** (15%): README, code comments, analysis
 
-### API Documentation
+## Bonus Features (Extra Points)
+- Ensemble methods
+- Real-time learning
+- Model explainability
+- Performance optimization
+- Multi-language support
 
-- **Endpoint documentation**: Document all API endpoints
-- **Request/response examples**: Provide examples for API usage
-- **Error codes**: Document possible error responses
+## Submission Checklist
 
-### User Documentation
+- [ ] Model achieves >70% accuracy
+- [ ] All API endpoints work with real predictions
+- [ ] >80% test coverage
+- [ ] Updated README with usage instructions
+- [ ] Code follows Python standards (PEP 8)
+- [ ] Performance requirements met
 
-- **README updates**: Update README for new features
+## Tips for Success
 
----
+1. **Start Simple**: Get basic Naive Bayes working first
+2. **Test Early**: Write tests as you build
+3. **Optimize Later**: Focus on working code, then improve accuracy
+4. **Handle Edge Cases**: Empty text, special characters, long text
+5. **Document Everything**: Clear README and code comments
 
-Thank you for contributing to the Sentiment Analysis Competition! Your contributions help make this project 
+## Resources
+
+**Datasets**: IMDB reviews, Stanford Sentiment Treebank, Twitter sentiment
+**Libraries**: scikit-learn, transformers, nltk, pandas, flask
+**Metrics**: accuracy, precision, recall, F1-score
+
+## Final Submission
+
+1. Ensure all tests pass: `pytest --cov=src`
+2. Test API manually: `python api/app.py`
+3. Push final code to your repository
+4. Submit repository URL with brief description
+
+**Goal**: Build a production-ready sentiment analysis system that works reliably and performs well. Start coding! 🚀
