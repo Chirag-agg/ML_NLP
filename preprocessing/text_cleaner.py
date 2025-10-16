@@ -1,157 +1,39 @@
-import re
-from typing import List
+# preprocessing/text_cleaner.py
 
+import re
+import nltk
+from typing import List
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 
 class TextCleaner:
-    """Text cleaner for sentiment analysis - participants can enhance."""
+    """A class to handle all text preprocessing."""
     
-    def __init__(self) -> None:
-        """Initialize the text cleaner."""
-        # TODO: Participants can add configuration options here
-        # Examples: self.remove_urls = True, self.remove_stopwords = False, etc.
-        pass
-        
+    def __init__(self):
+        self._initialize_nltk_resources()
+        self.lemmatizer = WordNetLemmatizer()
+        self.stop_words = set(stopwords.words('english'))
+
+    def _initialize_nltk_resources(self):
+        """Check for and download NLTK resources if missing."""
+        resources = ['stopwords', 'wordnet', 'omw-1.4']
+        for resource in resources:
+            try:
+                nltk.data.find(f'corpora/{resource}')
+            except LookupError:
+                print(f"Downloading NLTK resource: {resource}...")
+                nltk.download(resource, quiet=True)
+
     def clean_text(self, text: str) -> str:
-        """
-        Clean a single text string.
-        
-        Args:
-            text: Input text to clean
-            
-        Returns:
-            Cleaned text string
-            
-        TODO for participants:
-        - Implement comprehensive text cleaning
-        - Remove URLs, mentions, hashtags
-        - Handle special characters and emojis
-        - Remove stopwords
-        - Handle contractions
-        - Normalize repeated characters
-        """
-        if not text:
-            return ""
-            
-        # Basic cleaning - participants can enhance
-        cleaned = text.lower()
-        cleaned = re.sub(r'\s+', ' ', cleaned).strip()
-        
-        return cleaned
+        """Cleans and preprocesses a single string of text."""
+        text = str(text).lower()
+        text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
+        text = re.sub(r'\@\w+|\#','', text)
+        text = re.sub(r'[^a-z\s]', '', text)
+        tokens = text.split()
+        lemmatized_tokens = [self.lemmatizer.lemmatize(word) for word in tokens if word not in self.stop_words]
+        return " ".join(lemmatized_tokens)
         
     def clean_texts(self, texts: List[str]) -> List[str]:
-        """
-        Clean a list of text strings.
-        
-        Args:
-            texts: List of texts to clean
-            
-        Returns:
-            List of cleaned text strings
-            
-        TODO for participants:
-        - Implement batch processing optimization
-        - Add parallel processing for large datasets
-        - Add progress tracking for long operations
-        """
+        """Cleans and preprocesses a list of texts."""
         return [self.clean_text(text) for text in texts]
-        
-    def remove_urls(self, text: str) -> str:
-        """
-        Remove URLs from text.
-        
-        Args:
-            text: Input text
-            
-        Returns:
-            Text with URLs removed
-            
-        TODO for participants:
-        - Implement URL detection and removal
-        - Handle different URL formats
-        - Preserve text around URLs
-        """
-        # Function body - participants need to implement
-        return text
-        
-    def remove_mentions(self, text: str) -> str:
-        """
-        Remove @mentions from text.
-        
-        Args:
-            text: Input text
-            
-        Returns:
-            Text with mentions removed
-            
-        TODO for participants:
-        - Remove @username patterns
-        - Handle edge cases
-        """
-        # Function body - participants need to implement
-        return text
-        
-    def remove_hashtags(self, text: str) -> str:
-        """
-        Remove #hashtags from text.
-        
-        Args:
-            text: Input text
-            
-        Returns:
-            Text with hashtags removed
-            
-        TODO for participants:
-        - Remove #hashtag patterns
-        - Decide whether to keep hashtag text or remove entirely
-        """
-        # Function body - participants need to implement
-        return text
-        
-    def remove_stopwords(self, text: str) -> str:
-        """
-        Remove stopwords from text.
-        
-        Args:
-            text: Input text
-            
-        Returns:
-            Text with stopwords removed
-            
-        TODO for participants:
-        - Implement stopword removal
-        - Use NLTK or custom stopword lists
-        - Handle different languages
-        """
-        # Function body - participants need to implement
-        return text
-        
-    def handle_contractions(self, text: str) -> str:
-        """
-        Expand contractions in text.
-        
-        Args:
-            text: Input text
-            
-        Returns:
-            Text with contractions expanded
-            
-        TODO for participants:
-        - Expand contractions (don't -> do not)
-        - Handle various contraction forms
-        - Maintain text meaning
-        """
-        # Function body - participants need to implement
-        return text
-
-
-# TODO for participants - Additional text preprocessing features:
-# - Stemming and lemmatization
-# - Part-of-speech tagging
-# - Named entity recognition
-# - Sentiment-aware preprocessing
-# - Language detection
-# - Text normalization
-# - Spell checking and correction
-# - Emoji handling and sentiment mapping
-# - Slang and abbreviation expansion
-# - Text augmentation techniques
